@@ -1,3 +1,18 @@
 .body {
   background-color: black;
 }
+
+.restartButtonClass {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  display: block;
+}
+
+.player1Name {
+  color: white;
+}
+
+.player2Name {
+  color: white;
+}
