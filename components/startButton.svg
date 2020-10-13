@@ -11,8 +11,8 @@
                     <use xlink:href="#path-1"></use>
                 </mask>
                 <use id="Mask" fill="#D0B51C" xlink:href="#path-1"></use>
-                <text mask="url(#mask-2)" font-family="Phosphate-Inline, Phosphate" font-size="45" font-weight="normal" fill="#F70101">
-                    <tspan x="50" y="133">START</tspan>
+                <text mask="url(#mask-2)" font-family="cursive" font-size="45" font-weight="normal" fill="#F70101">
+                    <tspan x="40" y="133">START</tspan>
                 </text>
             </g>
         </g>
