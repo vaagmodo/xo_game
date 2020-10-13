@@ -3,18 +3,90 @@
   <head>
     <title>Xo Game version 3</title>
     <link rel="stylesheet" href="xoV3.css" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
   </head>
 
   <body class="body">
     <div>
+      <div class="startGameButtonImg">
+        <img src="./components/startButton.svg" id="gameStartButtonId" />
+      </div>
+
       <div>
-        <div class="imgRestart">
-          <img src="./components/restartButton.svg" class="restartButtonClass"
-          id="restartButtonId" onclick= />
-        </div>
         <div>
-          <div class="player1Name"><h3>Player 1</h3></div>
-          <div class="player2Name"><h3>Player 2</h3></div>
+          <img
+            src="./components/restartButton.svg"
+            class="restartButtonClass"
+            id="restartButtonId"
+          />
+        </div>
+
+        <div class="playersContainer">
+          <div class="player1">
+            <h3 class="name1">Player 1</h3>
+          </div>
+          <div class="player2">
+            <h3 class="name2">Player 2</h3>
+          </div>
+        </div>
+
+        <div>
+          <div class="scoreBoard">
+            <h3 class="headingScoreBoard">Score Board</h3>
+            <table class="scoreTable">
+              <tr>
+                <th class="gameNumber">Game No.</th>
+                <th class="winner">Winner</th>
+              </tr>
+              <tr class="numbers">
+                <td>1</td>
+                <td class="winPlayer1">
+                  Player
+                  <span style="color: white"> - </span>
+                  <span style="color: #601314"> 1 </span>
+                </td>
+              </tr>
+              <tr class="numbers">
+                <td>2</td>
+                <td class="winPlayer2">
+                  Player
+                  <span style="color: white"> - </span>
+                  <span style="color: #be2626">2</span>
+                </td>
+              </tr>
+              <tr class="numbers">
+                <td>3</td>
+                <td class="gameDraw">Draw</td>
+              </tr>
+            </table>
+          </div>
+          <div class="playersLogo">
+            <img src="./components/xLogo.svg" class="player1Logo" />
+            <p class="score" id="playerScore"></p>
+            <img src="./components/oLogo.svg" class="player2Logo" />
+          </div>
+        </div>
+
+        <div>
+          <div class="gameBoard">
+            <div class="grid3X3">
+              <div class="cells">X</div>
+              <div class="cells">O</div>
+              <div class="cells">X</div>
+              <div class="cells">O</div>
+              <div class="cells">X</div>
+              <div class="cells">O</div>
+              <div class="cells">X</div>
+              <div class="cells">O</div>
+              <div class="cells">X</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="messages">
+            <p class="gameMessage">Have fun Playing...</p>
+          </div>
         </div>
       </div>
     </div>
