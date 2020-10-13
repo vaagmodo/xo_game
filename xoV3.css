@@ -1,18 +1,175 @@
 .body {
   background-color: black;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1000px;
+  font-family: cursive;
+}
+
+.startGameButtonImg {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+.startGameButtonImg.show {
+  display: flex;
 }
 
 .restartButtonClass {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: 2%;
   display: block;
+  cursor: pointer;
 }
 
-.player1Name {
+.playersContainer {
+  display: flex;
+  justify-content: center;
+  margin: 2%;
+}
+
+.player1 {
+  display: inline-block;
+  border-radius: 40px;
+  background-color: black;
+  border: 2px solid white;
+  width: 15%;
+}
+
+.player2 {
+  display: inline-block;
+  border-radius: 80px;
+  background-color: black;
+  border: 2px solid white;
+  width: 15%;
+  margin-left: 4%;
+}
+
+.name1 {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+
+.name2 {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+
+.playersLogo {
+  text-align: center;
+  margin-top: 3%;
+}
+
+.player1Logo {
+  margin-right: 2%;
+  margin-bottom: -2%;
+}
+
+.player2Logo {
+  margin-left: 2%;
+  margin-bottom: -2%;
+}
+
+.scoreBoard {
+  background-color: #4fa6ff;
+  width: auto;
+  height: auto;
+  float: left;
+  border-radius: 20px;
+  margin-left: -25%;
+}
+
+.headingScoreBoard {
+  text-align: center;
+  font-size: 36px;
+  color: white;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+.scoreTable {
+  border-top: 1px solid black;
+  width: 100%;
+}
+
+.gameNumber {
+  border-bottom: 1px solid black;
+  color: black;
+  font-size: 28px;
+}
+
+.winner {
+  border-bottom: 1px solid black;
+  color: black;
+  font-size: 28px;
+}
+
+.numbers {
+  text-align: center;
+  font-size: 24px;
+}
+
+.winPlayer1 {
+  color: #c2db64;
+}
+
+.winPlayer2 {
   color: white;
 }
 
-.player2Name {
-  color: white;
+.gameDraw {
+  color: orange;
+}
+
+.score {
+  display: inline;
+  font-size: 3em;
+  color: #fadf68;
+}
+
+.grid3X3 {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 300px;
+  height: 300px;
+  background-color: #4fa6ff;
+  margin-left: auto;
+  margin-right: 35%;
+  margin-top: 3%;
+}
+
+.cells {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  cursor: pointer;
+}
+
+.messages {
+  display: block;
+  border-radius: 40px;
+  border: 1px solid white;
+  background-color: red;
+  width: 25%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 3%;
+}
+.gameMessage {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  color: yellow;
+  font-size: 20px;
 }
