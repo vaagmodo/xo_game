@@ -1,82 +1,104 @@
-// const player1 = 'x' // defining the x 
-// const player2 = 'o' // defining the o
-const gameWinningPossibility = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-] // defining the possibilities where game can be win.
-const player1 = []
-const player2 = []
-// let playerOne
-// let playerTwo
-let chance = 1 // player 1 turn so switching the turn between 2 players.
-let playerOneTurn = true
-let player1Score = 0 // score of the game won by player 1  
-let player2Score = 0 // score of the game won by player 2
-let gameNumber = 1 // which number of the game is currently playing.
-let gameWinner // who will be the winner of the game
-let tikTokToe = []
 
+class Event {
+    constructor() {
+        this.listeners = []
+    }
 
-// input = parseInt(window.prompt("enter "))
-// player1.push(input)
-// tikTokToe.push(input)
-// console.log(player1)
-// console.log(player2)
-// console.log(tikTokToe)
+    addListener(listener) {
+        this.listeners.push(listener)
+    }
 
-
-
-// const scores = document.getElementById("playerScore")
+    trigger(args) {
+        for (let i = 0; i < this.listeners.length; i++) {
+            listener[args]
+        }
+    }
+}
 
 class Model {
     constructor() {
+        this.ticTacToe = Array(9).fill();
+        this.currentPlayer = 'x'
+        this.gameFinished = false
+        this.player1Score = 0
+        this.player2Score = 0
+        this.gameNumber = 0
+
+        this.startGameEvent = new Event()
+        this.restartGameEvent = new Event()
+        this.updateCellsEvent = new Event()
+        this.playerScoreEvent = new Event()
+        this.gameWinnerEvent = new Event()
+        this.gameDrawEvent = new Event()
+    }
+
+    startGame(cellIndex) {
+        if (this.gameFinished || cellIndex > 8 || cellIndex < 0 || this.ticTacToe[cellIndex]) {
+            return false
+        }
+        this.ticTacToe[cellIndex] = this.currentPlayer
+
+        this.gameFinished = this.gameWinner() || this.gameDraw()
+
+        if (!this.gameFinished) {
+            this.switchCurrentPlayer()
+        }
+
+        return true
+    }
+
+    gameWinner() {
+        const gameWinningPossibility = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ]
+
+        this.currentPlayer === 'x' ? this.player1Score++ : this.player2Score++)
+    }
+
+    gameDraw() {
 
     }
 
-    swapChance() {
-        // initally playerOneTurn is True
-        playerOneTurn = !playerOneTurn
-        console.log(playerOneTurn)
-    }
-
-    playerChance() {
-        //initally chance is 1 it means it's X's chance at inital
-        playerOneTurn == 1 ? chance = 1 : chance = 0 // 1 means X's chance and 0 means O's chance
-        console.log(chance)
+    switchCurrentPlayer() {
+        // Initally current player is X
+        this.currentPlayer = this.currentPlayer === 'x' ? 'o' : 'x'
     }
 }
 
 class View {
-    constructor() { }
+    constructor() {
+
+    }
+
+    // accessingHTMLelements() {
+    //     const startGame = document.getElementById("gameStartButtonId")
+    //     const restartGame = document.getElementById("restartButtonId")
+    //     const board = document.getElementById("grid3X3")
+    //     const cells = document.getElementsByClassName("cells")
+    //     const scores = document.getElementById("playerScore")
+    //     const gameWinningMessage = document.getElementById("winningMessageId")
+    // }
 }
 
 class Controller {
-    constructor(model, view) {
-        this.model = model
-        this.view = view
+    constructor() {
+        this.model = new Model();
+        this.view = new View();
     }
 }
 
-const app = new Controller(new Model(), new View())
-
-// function swapChance() {
-//     if (chance === player1) {
-//         chance = player2
-//     }
-//     else {
-//         chance = player1
-//     }
-// }
 
 
+const app = new Controller()
 
-// scores.innerHTML = (`${player1Score} - ${player2Score}`) // output the total number of game won by players.
+
 
 // model
 //     removeOldMark()
@@ -86,14 +108,9 @@ const app = new Controller(new Model(), new View())
 //     checkGameWinner()
 //     endGame()
 
-// view
-
-
 // controller
 //     handleClick()
 //     cellMark()
 //     userClicked()
 //     startGame()
 //     restartGame()
-
-
