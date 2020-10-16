@@ -1,4 +1,3 @@
-
 class Event {
     constructor() {
         this.listeners = []
