@@ -59,11 +59,24 @@ class Model {
             [2, 4, 6]
         ]
 
-        this.currentPlayer === 'x' ? this.player1Score++ : this.player2Score++)
+        const gameWon = gameWinningPossibility.some(possibility => this.ticTacToe[possibility[0]] && this.ticTacToe[possibility[0]] === this.ticTacToe[possibility[1]] && this.ticTacToe[possibility[1]] === this.ticTacToe[possibility[2]])
+        if (gameWon) {
+            this.gameWinnerEvent.trigger(this.currentPlayer)
+        }
+
+        this.currentPlayer === 'x' ? this.player1Score++ : this.player2Score++
+
+        return gameWon
     }
 
     gameDraw() {
+        const draw = this.ticTacToe.every(cell => cell)
 
+        if (draw) {
+            this.gameDrawEvent.trigger()
+        }
+
+        return draw
     }
 
     switchCurrentPlayer() {
