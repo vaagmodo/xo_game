@@ -106,12 +106,6 @@ class Controller {
     }
 }
 
-
-
-const app = new Controller()
-
-
-
 // model
 //     removeOldMark()
 //     checkPlayerTurn()
