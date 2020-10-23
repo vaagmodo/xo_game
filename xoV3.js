@@ -20,6 +20,7 @@ class Model {
         this.player1Score = 0
         this.player2Score = 0
         this.gameNumber = 0
+
         this.startGameEvent = new Event()
         this.restartGameEvent = new Event()
         this.updateCellsEvent = new Event()
@@ -53,7 +54,6 @@ class Model {
         if (gameWon) {
             this.gameWinnerEvent.trigger(this.currentPlayer)
         }
-        this.currentPlayer === 'x' ? this.player1Score++ : this.player2Score++
         return gameWon
     }
 
@@ -68,18 +68,39 @@ class Model {
         // Initally current player is X
         this.currentPlayer = this.currentPlayer === 'x' ? 'o' : 'x'
     }
+
+    playerScore() {
+        const playerScore = this.currentPlayer === 'x' ? this.player1Score++ : this.player2Score++
+        return playerScore
+    }
 }
 class View {
     constructor() {
     }
-    // accessingHTMLelements() {
-    //     const startGame = document.getElementById("gameStartButtonId")
-    //     const restartGame = document.getElementById("restartButtonId")
-    //     const board = document.getElementById("grid3X3")
-    //     const cells = document.getElementsByClassName("cells")
-    //     const scores = document.getElementById("playerScore")
-    //     const gameWinningMessage = document.getElementById("winningMessageId")
-    // }
+    // showGame() {
+    //     const board = document.createElement('div')
+    //     board.className = 'gameBoard'
+
+    accessingHTMLelements() {
+        const startGame = document.getElementById("gameStartButtonId")
+        const restartGame = document.getElementById("restartButtonId")
+        const board = document.getElementById("grid3X3")
+        const cells = document.getElementsByClassName("cells")
+        const scores = document.getElementById("playerScore")
+        const gameWinningMessage = document.getElementById("winningMessageId")
+    }
+
+    restart() {
+        this.restartGame.addListener(onclick)
+    }
+
+    victory(gameWon) {
+        this.gameWinningMessage.innerHTML = `${gameWon} won!`
+    }
+
+    draw() {
+        this.gameWinningMessage.innerHTML = "Game is Draw!!"
+    }
 }
 
 class Controller {
